@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #1B56FD;
+}
+
+
+.btn{
+    @apply bg-primary/10 px-2 py-1 border border-primary rounded hover:bg-primary/75 hover:text-white cursor-pointer transition
+}
