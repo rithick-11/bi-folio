@@ -18,7 +18,7 @@ const Home = () => {
             options={{
               strings: data.labelSkills,
               autoStart: true,
-              loop: true,
+              loop: true, 
             }}
           />
         </p>

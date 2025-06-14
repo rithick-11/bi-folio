@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Skills from "./components/Skills";
+import { Container } from "../../Components";
 
 const index = () => {
   return (
@@ -11,11 +12,11 @@ const index = () => {
         <div class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)]"></div>
       </div>
       <Navbar />
-      <div className="w-[90%] mx-auto sm:w-xl md:w-3xl">
+      <Container>
         <Home />
         <About />
         <Skills />
-      </div>
+      </Container>
     </div>
   );
 };
