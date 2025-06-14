@@ -9,4 +9,4 @@ const AddSkills = () => {
   );
 };
 
-export default AddSkills;
+export default AddSkills;   
