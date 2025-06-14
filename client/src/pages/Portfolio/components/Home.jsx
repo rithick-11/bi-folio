@@ -1,8 +1,11 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 import { data } from "../../../utils/data";
+import useAccountStore from "../../../store/useAccountStore";
 
 const Home = () => {
+
+  const {userData: data} = useAccountStore()
   return (
     <section className="h-screen flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20">
       <img

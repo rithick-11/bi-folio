@@ -77,6 +77,26 @@ const useAccountStore = create((set, get) => ({
       },
     });
   },
+
+  onAddSkills: (skill) => {
+    set({
+      userData: {
+        ...get().userData,
+        skillsList: [...get().userData.skillsList, skill],
+      },
+    });
+  },
+
+  onDeleteSkill: (id) => {
+    set({
+      userData: {
+        ...get().userData,
+        skillsList: get().userData.skillsList.filter(
+          (skill) => skill.id !== id
+        ),
+      },
+    });
+  },
 }));
 
 export default useAccountStore;

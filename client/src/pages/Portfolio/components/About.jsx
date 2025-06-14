@@ -1,8 +1,9 @@
 import React from "react";
 import Title from "./Title";
-import { data } from "../../../utils/data";
+import useAccountStore from "../../../store/useAccountStore";
 
 const About = () => {
+  const { userData: data } = useAccountStore();
   return (
     <section className="py-20">
       <Title>About</Title>
@@ -21,9 +22,13 @@ const About = () => {
             key={index}
             className="bg-white/70 px-4 py-6 shadow text-[1rem] md:text-lg rounded-md cursor-pointer"
           >
-            <p className="font-semibold">{item.institustion}</p>
+            <p className="font-semibold">
+              {item.institustion}, {data.location}
+            </p>
             <p className="font-light text-sm ms:text-[1rem]">{item.batch}</p>
-            <p className="font-normal mt-1 text-sm ms:text-[1rem]">{item.branch}</p>
+            <p className="font-normal mt-1 text-sm ms:text-[1rem]">
+              {item.branch}
+            </p>
           </li>
         ))}
       </ul>
