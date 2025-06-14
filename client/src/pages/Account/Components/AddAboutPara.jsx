@@ -1,27 +1,28 @@
 import React, { useState } from "react";
 import Card from "./Card";
-import useAccountStore from "../../../store/useAccountStore";
 import { BsDatabaseSlash } from "react-icons/bs";
 import { MdCancel } from "react-icons/md";
+import useAccountStore from "../../../store/useAccountStore";
 import { FaSave } from "react-icons/fa";
 
-const ProfileTagLine = () => {
-  const { userData, addTagLine, deleteTagLine } = useAccountStore();
+const AddAboutPara = () => {
+  const { userData, addAboutPara, deleteAboutPara } = useAccountStore();
   const [input, setInput] = useState("dasdas");
   const [save, setSave] = useState(false);
-  const { labelSkills } = userData;
+
+  const { about } = userData;
   return (
     <Card>
-      <h1 className="text-sm text-blue-500">Profile Tag Line</h1>
-      {labelSkills.length === 0 ? (
+      <h1 className="text-blue-500 text-sm">About Me</h1>
+      {about.length === 0 ? (
         <div className="flex flex-col mt-5 text-sm items-center justify-center">
           <BsDatabaseSlash className="text-5xl" />
-          <p className="mt-3">There is no profile tag line</p>
-          <p className="font-extralight">add tag line</p>
+          <p className="mt-3">There is no about line</p>
+          <p className="font-extralight">add about line</p>
         </div>
       ) : (
         <ul className="flex mt-3 gap-3">
-          {labelSkills.map((item, index) => (
+          {about.map((item, index) => (
             <li
               className="flex gap-2 items-center bg-gray-300/50 text-sm p-1 rounded"
               key={index}
@@ -30,7 +31,7 @@ const ProfileTagLine = () => {
               <button
                 className="cursor-pointer"
                 onClick={() => {
-                  deleteTagLine(index);
+                  deleteAboutPara(index);
                   setSave(true);
                 }}
               >
@@ -51,7 +52,7 @@ const ProfileTagLine = () => {
           <button
             className="text-sm bg-gray-900/30 px-2 py-1 cursor-pointer rounded ml-2 focus:ring-0"
             onClick={() => {
-              addTagLine(input);
+              addAboutPara(input);
               setInput("");
               setSave(true);
             }}
@@ -70,4 +71,4 @@ const ProfileTagLine = () => {
   );
 };
 
-export default ProfileTagLine;
+export default AddAboutPara;

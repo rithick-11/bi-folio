@@ -4,6 +4,9 @@ import useAccountStore from "../../store/useAccountStore";
 import Profile from "./Components/Profile";
 import SocialContacts from "./Components/SocialContacts";
 import ProfileTagLine from "./Components/ProfileTagLine";
+import AddAboutPara from "./Components/AddAboutPara";
+import AddEducation from "./Components/AddEducation";
+import AddSkills from "./Components/AddSkills";
 
 const index = () => {
   const { userData } = useAccountStore();
@@ -16,6 +19,9 @@ const index = () => {
         <Profile />
         <SocialContacts />
         <ProfileTagLine />
+        <AddAboutPara />
+        <AddEducation />
+        <AddSkills />
       </Container>
     </section>
   );
