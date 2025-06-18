@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import api from "../utils/api";
 import { toast } from "react-toastify";
+import Cookies from "js-cookie";
 import { isValidUsername } from "../utils/helper";
 
 const useAuthStore = create((set, get) => ({
@@ -44,7 +45,16 @@ const useAuthStore = create((set, get) => ({
     }
   },
   onSignup: async (e) => {
-    
+    e.preventDefault();
+    console.log(get().signUpForm);
+    try {
+      const response = await api.post("/api/users/signup", get().signUpForm);
+      const { token } = response;
+      Cookies.set("token", token, { expires: "2h" });
+      toast.success(response.data.message);
+    } catch (error) {
+      console.log(error);
+    }
   },
 }));
 

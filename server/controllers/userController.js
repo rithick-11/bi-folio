@@ -1,10 +1,16 @@
 import User from "../models/userMode.js";
+import Portfolio from "../models/portfolioModel.js";
 
 export const createUser = async (req, res) => {
   try {
     const newUser = new User(req.body);
     await newUser.save();
-    res.status(201).json(newUser);
+    const newPortfolio = new Portfolio();
+    await newPortfolio.save();
+    newUser.portfolio = newPortfolio._id;
+    await newUser.save();
+    const token = await newUser.generateToken();
+    res.status(201).json({ user: newUser, token });
   } catch (err) {
     console.error(err);
     if (err.name === "ValidationError") {
@@ -13,7 +19,7 @@ export const createUser = async (req, res) => {
     if (err.code === 11000) {
       return res.status(400).json({ error: "Duplicate key error" });
     }
-    res.status(500).json({ error: "Internal server error" });
+    return res.status(500).json({ error: "Internal server error" });
   }
 };
 

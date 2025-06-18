@@ -9,3 +9,7 @@ const portfolioSchema = new mongoose.Schema({
   education: [],
   skillsList: [],
 });
+
+const Portfolio = mongoose.model("Portfolio", portfolioSchema);
+
+export default Portfolio;

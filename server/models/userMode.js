@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
-import { type } from "os";
 
 
 const userShema = new mongoose.Schema({
@@ -52,7 +51,7 @@ userShema.methods.comparePassword = async function (password) {
 
 userShema.methods.generateToken = async function () {
   const token = jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
+    expiresIn: "2h",
   });
   return token;
 };
