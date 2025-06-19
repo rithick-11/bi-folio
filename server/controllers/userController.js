@@ -23,6 +23,19 @@ export const createUser = async (req, res) => {
   }
 };
 
+export const loginUser = async (req, res) => {
+  const { email, password } = req.body;
+  let user = await User.findOne({ email });
+  if (!user) {
+    user = await User.findOne({ username: email });
+  }
+  if (!user) return res.status(404).json({ error: "User not found" });
+  const isMatch = await user.comparePassword(password);
+  if (!isMatch) return res.status(401).json({ error: "Invalid credentials" });
+  const token = await user.generateToken();
+  return res.status(200).json({ user, token });
+};
+
 export const checkUsername = async (req, res) => {
   const { username } = req.params;
   try {

@@ -50,10 +50,23 @@ const useAuthStore = create((set, get) => ({
     try {
       const response = await api.post("/api/users/signup", get().signUpForm);
       const { token } = response;
-      Cookies.set("token", token, { expires: "2h" });
+      Cookies.set("bifolioJwt", token, { expires: 2 / 24 });
       toast.success(response.data.message);
     } catch (error) {
       console.log(error);
+    }
+  },
+  onLogin: async () => {
+    try {
+      const response = await api.post("/api/users/login", get().signUpForm);
+      const { token } = response.data;
+      Cookies.set("bifolioJwt", token, { expires: 2 / 24 });
+      console.log(token);
+      toast.success(response.data.message);
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
     }
   },
 }));

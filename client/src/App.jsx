@@ -1,6 +1,6 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
-import { Account, Home, Portfolio, SignUp } from "./pages";
+import { Account, Home, Login, Portfolio, SignUp } from "./pages";
 import { Route, Routes } from "react-router-dom";
 
 const App = () => {
@@ -9,6 +9,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" Component={Home}></Route>
         <Route exact path="/signup" Component={SignUp}></Route>
+        <Route exact path="/login" Component={Login}></Route>
         <Route exact path="/portfolio" Component={Portfolio}></Route>
         <Route exact path="/account" Component={Account}></Route>
       </Routes>
