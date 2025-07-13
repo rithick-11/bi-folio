@@ -827,3 +827,90 @@ export const data = {
     },
   ],
 };
+
+export const apiStatus = {
+  init:"init",
+  loading:"loacding",
+  success:"success",
+  error:"error",
+}
+
+export const socialMediaPlatforms = [
+  {
+    name: "Facebook",
+    logoUrl:
+      "https://cdn1.iconfinder.com/data/icons/social-media-2285/512/Colored_Facebook3_svg-256.png",
+    description:
+      "A global social networking platform for connecting with friends and sharing content.",
+    domain: "Social Networking",
+    url: "https://www.facebook.com/",
+    usename: "",
+    visible: true,
+  },
+  {
+    name: "Instagram",
+    logoUrl:
+      "https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Instagram_colored_svg_1-1024.png",
+    description:
+      "A photo and video-sharing social media platform popular among younger users.",
+    domain: "Photo & Video Sharing",
+    url: "https://www.instagram.com/",
+    usename: "",
+    visible: true,
+  },
+  {
+    name: "YouTube",
+    logoUrl:
+      "https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Youtube_colored_svg-1024.png",
+    description:
+      "A video-sharing platform where users upload, view, and interact with videos.",
+    domain: "Video Sharing",
+    url: "https://www.youtube.com/",
+    usename: "",
+    visible: true,
+  },
+  {
+    name: "Twitter/X",
+    logoUrl:
+      "https://cdn.iconscout.com/icon/free/png-512/free-twitter-logo-icon-download-in-svg-png-gif-file-formats--x-new-sign-logos-pack-icons-7651211.png?f=webp&w=256",
+    description:
+      "A microblogging platform for real-time sharing of thoughts, news, and media.",
+    domain: "Microblogging",
+    url: "https://www.twitter.com/",
+    usename: "",
+    visible: true,
+  },
+  {
+    name: "Telegram",
+    logoUrl:
+      "https://cdn3.iconfinder.com/data/icons/social-icons-33/512/Telegram-64.png",
+    description:
+      "A messaging app with strong focus on privacy, large groups, and media sharing.",
+    domain: "Messaging",
+    url: "https://www.telegram.org/",
+    usename: "",
+    visible: true,
+  },
+  {
+    name: "Snapchat",
+    logoUrl:
+      "https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Snapchat_colored_svg-256.png",
+    description:
+      "A multimedia messaging app known for its disappearing messages and filters.",
+    domain: "Multimedia Messaging",
+    url: "https://www.snapchat.com/",
+    usename: "",
+    visible: true,
+  },
+  {
+    name: "LinkedIn",
+    logoUrl:
+      "https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Linkedin_unofficial_colored_svg-256.png",
+    description:
+      "A professional networking platform used for job search and career growth.",
+    domain: "Professional Networking",
+    url: "https://www.linkedin.com/",
+    usename: "",
+    visible: true,
+  },
+];

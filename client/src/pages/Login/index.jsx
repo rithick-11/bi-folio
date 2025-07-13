@@ -58,12 +58,15 @@ const index = () => {
           >
             Login
           </button>
-          <p className="text-xs font-extralight mt-3">
-            I don't have an account{" "}
-            <Link to="/" className="text-purple-500 underline ">
-              click here
-            </Link>
-          </p>
+          <div className="flex items-center justify-between mt-4">
+            <p className="text-xs font-extralight mt-3">
+              I don't have an account{" "}
+              <Link to="/" className="text-purple-500 underline ">
+                click here
+              </Link>
+            </p>
+            <Link to="/forgot-password" className="text-xs font-extralight mt-3 underline cursor-pointer">Forgot password</Link>
+          </div>
         </form>
       </Container>
     </div>
