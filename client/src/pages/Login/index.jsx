@@ -1,11 +1,12 @@
 import React from "react";
 import useAuthStore from "../../store/useAuthStore";
 import Cookies from "js-cookie";
+import { HashLoader } from "react-spinners";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Container, Logo } from "../../Components";
 
 const index = () => {
-  const { onLogin, handleSignUpForm, signUpForm } = useAuthStore();
+  const { onLogin, handleSignUpForm, signUpForm, isLoading } = useAuthStore();
   const navigate = useNavigate();
 
   const onFormSumbit = async (e) => {
@@ -56,6 +57,7 @@ const index = () => {
             type="submit"
             className="bg-purple-500/90 mt-4 text-lg font-semibold text-white rounded py-1 cursor-pointer"
           >
+            {isLoading && <HashLoader size={13} color={"white"} />}
             Login
           </button>
           <div className="flex items-center justify-between mt-4">

@@ -1,7 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Phudu:wght@300..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
-
 @theme {
-  --color-primary: #1b56fd; 
+  --color-primary: #1b56fd;
+  --font-sans: "Raleway", sans-serif;
+}
+
+P{
+  @apply text-sm text-gray-600; 
+}
+
+.link {
+  @apply text-purple-500 hover:text-purple-600/75 hover:underline transition;
 }
 
 .btn {
@@ -12,11 +21,10 @@
   @apply px-2 py-1 border-none rounded text-white flex gap-1 items-center self-baseline;
 }
 
-
-.input-tag{
-  @apply flex flex-col gap-1
+.input-tag {
+  @apply flex flex-col gap-1;
 }
 
-.input-tag input{
-  @apply border-b text-sm py-1 focus:outline-none
+.input-tag input {
+  @apply border-b text-sm py-1 focus:outline-none;
 }

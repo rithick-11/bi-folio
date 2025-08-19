@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Logo } from "../../Components";
 import { HashLoader } from "react-spinners";
 import useAuthStore from "../../store/useAuthStore";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const index = () => {
   const { signUpForm, isLoading, checkUsername, handleSignUpForm } =
@@ -29,7 +29,7 @@ const index = () => {
 
         <div className="mt-10 flex flex-col gap-2">
           <div className="px-3 py-2 text-sm bg-white rounded-md border">
-            <label className="font-semibold">bi-folio.vercel/</label>
+            <label className="font-medium">bi-folio.vercel/</label>
             <input
               type="text"
               value={signUpForm.username}
@@ -45,6 +45,7 @@ const index = () => {
             {isLoading && <HashLoader size={13} color={"white"} />}
             Check
           </button>
+          <p>I have a account <Link className="link" to="/login">login</Link></p>
         </div>
       </Container>
     </div>

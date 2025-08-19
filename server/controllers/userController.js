@@ -72,6 +72,8 @@ export const forgotPassword = async (req, res) => {
       }/reset-password?verify=${verificationToken}">Reset Password</a>
     </div>`;
 
+    console.log(process.env.DEV);
+
     if (
       await sendMail(
         email,

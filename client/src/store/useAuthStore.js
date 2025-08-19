@@ -16,9 +16,10 @@ const useAuthStore = create((set, get) => ({
   isLoading: false,
   usernameUnique: false,
   handleSignUpForm: (e) => {
-    const { name, value } = e.target;
-    if (name === "username" && !isValidUsername(value)) {
-      return;
+    let { name, value } = e.target;
+    if (name === "username"){
+      value = value.trim().toLowerCase();
+      if(!isValidUsername(value)) return
     }
     set((state) => ({
       signUpForm: {
@@ -49,6 +50,7 @@ const useAuthStore = create((set, get) => ({
   },
 
   onSignup: async (e) => {
+    set({ isLoading: true });
     e.preventDefault();
     console.log(get().signUpForm);
     try {
@@ -58,10 +60,13 @@ const useAuthStore = create((set, get) => ({
       toast.success(response.data.message);
     } catch (error) {
       console.log(error);
+    } finally {
+      set({ isLoading: false });
     }
   },
   onLogin: async () => {
     try {
+      set({ isLoading: true });
       const response = await api.post("/api/users/login", get().signUpForm);
       const { token } = response.data;
       Cookies.set("bifolioJwt", token, { expires: 2 / 24 });
@@ -71,6 +76,8 @@ const useAuthStore = create((set, get) => ({
     } catch (error) {
       console.log(error);
       return false;
+    } finally {
+      set({ isLoading: false });
     }
   },
 
